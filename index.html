@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8"/>
+<script type="text/javascript" src="BigInt/BigInteger.js"></script>
+<script type="text/javascript" src="RsaScript.js"></script>
+
+<title>RSAEncryptor</title>
+<link href="style.css" type="text/css" rel="stylesheet"/>
+<!-- <meta http-equiv="refresh" content="1" > -->
+</head>
+
+<body>
+
+
+<div class="container">
+<form  class="form1" id="ebala">
+
+  
+   <!-- <button id="button_click" onclick="MakeRSA(512, 'open_keyN', 'open_keyD' );" >Генерировать Ключи"</button> -->
+        
+
+   <!-- <div id="button_click">Генерировать Ключи</div> -->
+
+   <h4 id="button_click" onclick="MakeRSA('key', 'open_keyN', 'open_keyD' );">Генерировать ключи</h3>
+
+        <h5>Длина ключа</h5>
+        <textarea id="key" class="noneditable1" id="open_keyD" ></textarea>
+        <h5>Закрытый ключ</h5>
+        <textarea class="noneditable1" id="open_keyD" ></textarea>
+        <h5>Открытый ключ</h5>
+        <textarea class="noneditable1" id="open_keyN" ></textarea>
+        
+        <hr>
+
+    <h5>Сообщение для зашифровки</h5>
+  <textarea  id="input_text" onclick="EncryptHTML('input_text', 'closed_key','open_keyq', 'open_keyN');"
+   oninput="EncryptHTML('input_text', 'closed_key','open_keyq', 'open_keyN');"></textarea>
+  
+  
+
+  <h5>Зашифрованное сообщение</h5>
+  <textarea id="closed_key" onchange="DecryptHTML('closed_key', 'out_text','open_keyq','open_keyD','open_keyN');"></textarea>
+  <hr>
+  <h4 id="button_click" onclick="DecryptHTML('closed_key', 'out_text','open_keyq','open_keyD','open_keyN');">Расшифровать</h3>
+  <textarea  id="out_text" ></textarea>
+
+
+  <p></p>
+
+
+</form>
+
+</div>
+
+</body>
+</html> 
+

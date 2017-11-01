@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8"/>
+<script type="text/javascript" src="BigInt/BigInteger.js"></script>
+
+<title>RSAEncryptor</title>
+<link href="style.css" type="text/css" rel="stylesheet"/>
+<!-- <meta http-equiv="refresh" content="1" > -->
+</head>
+
+<body onload="MakeRSA();">
+
+
+<div class="container">
+<form  id="ebala">
+	<div class="cnt">
+	<h3>Сообщение для расшифровки</h3>
+	
+  <textarea  id="input_text" oninput="CryptDecryptHTML('input_text', 'out_text', 'mask');"></textarea>
+  
+  <h3>Закрытый Ключ </h3>
+  <textarea id="open_key"></textarea>
+
+  <h3>Экспонента</h3>
+  <textarea id="open_key"></textarea>
+
+  <h3>Зашифрованное сообщение</h3>
+  <textarea class="noneditable" id="out_text" readonly="true">&#x1F602</textarea>
+
+
+  <p></p>
+</div>
+
+
+</form>
+
+
+
+
+</div>
+
+<script>
+
+	var rsa = {};
+	function MakeRSA()
+	{
+		rsa = RSA.generate(256);
+		document.getElementById("open_key").value = rsa.n + " + " + rsa.e;
+		document.getElementById("closed_key").value = rsa.d;
+
+
+
+	}
+
+	var RSA = {};
+
+	RSA.decrypt = function(c, d, n){
+		return bigInt(c).modPow(d, n);   
+	};
+
+
+    function CryptDecryptHTML(originalelement, out_element, mask_element)
+    {
+		var ppf = rsa;
+      var original_text = document.getElementById(originalelement).value;
+
+      var exit_array = [];
+      var pass_iterator = 0;
+
+	  parseInt(original_text, 10);
+
+      for(var f=0; f<original_text.length; f++)
+      {
+       	exit_array[f] =  RSA.encrypt(original_text.charCodeAt(f), ppf.n,ppf.e);
+      }
+
+      var output_string = '';
+	  var output_string2 = '';
+   // document.getElementById(out_element).value = exit_array;// RSA.decrypt(Encrypted, ppf.d, ppf.n);
+
+	for(var f=0; f<exit_array.length; f++)
+	{
+		output_string += String.fromCharCode( RSA.decrypt(exit_array[f], ppf.d, ppf.n));// RSA.decrypt(Encrypted, ppf.d, ppf.n);
+		output_string2 += exit_array[f].toString() + " " ;
+		console.log(exit_array.length);
+		  
+   	}
+	   //document.getElementById(out_element).value = exit_array.toString();
+	   document.getElementById(out_element).value = output_string2;// RSA.decrypt(Encrypted, ppf.d, ppf.n);
+  
+    }
+  </script>
+
+</body>
+</html> 
+
