@@ -1,7 +1,14 @@
 body {
-    background-color: #6D87D6;
-}
+    margin: 0px;
+    padding: 0px;
+    
+  
+    background-color:#4E8585;
+   
+   
+ 
 
+}
 h3 {
     
    
@@ -58,10 +65,19 @@ float: none;
 .noneditable1
 {
     background-color: rgb(196, 169, 169);
-    height: 11px;
-    font-size: 10px;
     
 }
+
+.short_field
+{
+    padding:3px;
+    height: 24px;
+    font-size: 12px;
+    
+}
+
+
+
 .noneditable1 textarea{
     
     width: 180px;
@@ -77,16 +93,21 @@ float: none;
     text-align: center;
     padding: 5px;
     background: #FFAF45;
+    border-color:gray; 
     border-style: solid;
     border-width: 1px;
     border-radius: 5px;
     width: 160px;
     font-size: 14px;
-
+    transition-property: background-color;
+    transition-duration: 200ms;
+    transition-timing-function: ease-in-out;
 }
 
 #button_click:hover
 {
+    background-color: #FFD399;
+
     font-weight: 500;
     color: rgb(51, 71, 133);
     border-width: 1px;
@@ -101,19 +122,6 @@ float: none;
    
 }
 
-#key
-{
-    background: rgba(224, 240, 255, 0.4);
-
-}
-
-.noneditable
-{
-    background: gray;
-    
-
-    
-}
 
 #header
 {
@@ -141,14 +149,20 @@ float: none;
     margin-left: 20%;
 } */
 
+.upper
+{
+    z-index: 2;
+}
+
 form{
    
     /* text-align: center; */
-    
-    margin-top: -8px;
-    margin-left: 20%;
+   
 
-    margin-right: auto;
+    transition: margin-left;
+    transition-duration: 12000ms;
+
+
     padding: 30px;
     padding-top: 5px;
     padding-bottom: 10px;
@@ -156,7 +170,6 @@ form{
     background: rgb(221, 204, 207);
     
     border-width:1px;
-    box-shadow: red;
     border-style: inset;
     border-color: 	rgba(166, 97, 151, 0.89);
     border-top-width: 0;
@@ -164,12 +177,27 @@ form{
     border-bottom-right-radius: 20px;
     
     font-weight: 80; 
-    max-width: 100%;
-    min-width: 100px;
     height: auto;
-    float: left;
-  
+
+    animation-name: dropdown;
+    animation-delay:0s;
+    animation-duration: .5s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+
+
 }
+
+@keyframes dropdown{
+    from{
+        filter: contrast(0)
+    }
+    to{
+        filter:contrast(1);
+    }
+}
+
+
 
 
 textarea{
@@ -177,20 +205,23 @@ textarea{
     padding: 5px;
     resize: none;
     background: rgba(224, 240, 255, 0.4);
-    font-weight: 120;
-    font-size: 20px;
+    font-weight: 100;
+    font-size: 15px;
     height: 70px;
-    width: 700px;
+    width:100%;
     color:black;
-    border: 2px solid; 
+    border: 2px solid gray; 
     border-width: 1px 1px 1px 1px;
-    
-  
+    transition-property: background-color;
+    transition-duration: 300ms;
+    transition-timing-function: ease-out;
     box-shadow: -50x -50x firebrick;
 }
 textarea:hover
 {
-    background: rgba(151, 206, 255, 0.4);
+
+    background-color: rgba(151, 206, 255, 0.4);
+    box-shadow: inset 0px 1px 1px rgba(0,0,0,0.075), 0px 0px 8px rgba(44,62,80,0.6);
    
 
 }
@@ -198,8 +229,12 @@ textarea:hover
 textarea:focus
 {
     background: rgba(151, 206, 255, 0.4);
-    border: 1px dashed; 
-
+    border: 1px rgb(0, 0, 0) solid; 
+    transition: border-color ease-in-out .25s,box-shadow ease-in-out .25s;
 }
 
 
+#fading
+{
+    filter: contrast(0);
+}

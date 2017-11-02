@@ -7,29 +7,64 @@
 
 <title>RSAEncryptor</title>
 <link href="style.css" type="text/css" rel="stylesheet"/>
+<link href="bootstrap-grid.min.css" type="text/css" rel="stylesheet"/>
+
 <!-- <meta http-equiv="refresh" content="1" > -->
+
+
+<script>
+
+var time_key=10;
+
+function load_func()
+{
+
+  MakeRSA('key', 'open_keyN', 'open_keyD' );
+  var f = document.getElementById("fade");
+  console.log(f.style.filter.contrast);
+  f.style.filter = "contrast(1)";
+
+  
+  var timeIter=0;
+  for(var i=0;i < 1; i+=0.00001)
+  {
+    console.log(i);
+    f.style.filter = "contrast(" + i + ");";
+  }
+
+
+
+}
+
+
+</script>
+
 </head>
+
 
 <body>
 
-
-<div class="container">
-<form  class="form1" id="ebala">
-
+<div class="container upper">
+  <div class="row">
+    
+<form  class="col-sm-12" id="ebala">
+  
   
    <!-- <button id="button_click" onclick="MakeRSA(512, 'open_keyN', 'open_keyD' );" >Генерировать Ключи"</button> -->
         
 
    <!-- <div id="button_click">Генерировать Ключи</div> -->
 
-   <h4 id="button_click" onclick="MakeRSA('key', 'open_keyN', 'open_keyD' );">Генерировать ключи</h3>
+   <h4 id="button_click" onclick="load_func();">Генерировать ключи</h4>
 
         <h5>Длина ключа</h5>
-        <textarea id="key" class="noneditable1" id="open_keyD" ></textarea>
+        <textarea id="key" class="short_field" id="open_keyD" ></textarea>
+
+        <div id="fade" >
         <h5>Закрытый ключ</h5>
-        <textarea class="noneditable1" id="open_keyD" ></textarea>
+        <textarea class="noneditable1 short_field" id="open_keyD" ></textarea>
         <h5>Открытый ключ</h5>
-        <textarea class="noneditable1" id="open_keyN" ></textarea>
+        <textarea class="noneditable1 short_field" id="open_keyN" ></textarea>
         
         <hr>
 
@@ -43,14 +78,15 @@
   <textarea id="closed_key" onchange="DecryptHTML('closed_key', 'out_text','open_keyq','open_keyD','open_keyN');"></textarea>
   <hr>
   <h4 id="button_click" onclick="DecryptHTML('closed_key', 'out_text','open_keyq','open_keyD','open_keyN');">Расшифровать</h3>
-  <textarea  id="out_text" ></textarea>
+  <textarea class="noneditable1" id="out_text" ></textarea>
 
 
   <p></p>
-
+  </div>
 
 </form>
 
+</div>
 </div>
 
 </body>

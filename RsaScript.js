@@ -158,14 +158,19 @@ function base100encodeFromBigIntToString(input) {
 
 function MakeRSA(number, nKeyElement, dKeyElement)
 {
-    if(document.getElementById(number).value == '')
+    
+    rsaBit =   document.getElementById(number).value;
+    if(rsaBit == '' )
     {
-        document.getElementById(nKeyElement).value = "Неверно введена длина ключа ключа";
-        document.getElementById(dKeyElement).value = "Неверно введена длина ключа ключа";
+        document.getElementById(nKeyElement).value = "Неверно введена длина ключа";
+        document.getElementById(dKeyElement).value = "Неверно введена длина ключа";
 
         return;
     }
-    rsaBit =   document.getElementById(number).value;
+
+
+
+    
 
     document.getElementById(nKeyElement).value = '';
     document.getElementById(dKeyElement).value = '';
