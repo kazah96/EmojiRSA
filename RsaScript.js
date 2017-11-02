@@ -159,17 +159,23 @@ function base100encodeFromBigIntToString(input) {
 function MakeRSA(number, nKeyElement, dKeyElement)
 {
     
+    var regex = new RegExp("[^0-9]");
     rsaBit =   document.getElementById(number).value;
-    if(rsaBit == '' )
+
+
+    var matched =  String(rsaBit).match(regex);
+
+
+   
+
+    if(rsaBit== '' || matched != null)
     {
+        //console.log("matched = " + matched);
         document.getElementById(nKeyElement).value = "Неверно введена длина ключа";
         document.getElementById(dKeyElement).value = "Неверно введена длина ключа";
 
         return;
     }
-
-
-
     
 
     document.getElementById(nKeyElement).value = '';
