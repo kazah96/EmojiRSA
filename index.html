@@ -14,111 +14,27 @@
 
 <!-- <meta http-equiv="refresh" content="1" > -->
 
-
-<script>
-
-var time_key=10;
-
-
-
-$("#helper").toggle(0);
-
-function ShowHint(Message)
-{
-  var helper = document.getElementById("helper");
-  helper.textContent = Message;
-
-  $("#helper").animate({opacity:1}, 600, function(){});
-
-
-  $({contrast : 1}).animate({contrast : 0}, {
-    duration : 10000, 
-    easing: 'swing',
-    step: function() {
-      $('#helper').css({"filter" : "contrast(" + this.contrast + ")"});
-    }
-    });
-
-
-}
-
-
-
-function load_func()
-{
-  TryMakeRsa();
-
-}
-
-function TryMakeRsa()
-{
-     var regex = new RegExp("[^0-9]");
-    rsaBit =   document.getElementById('key').value;
-    var matched =  String(rsaBit).match(regex);
-    if(rsaBit== '' || matched != null)
-    {
-        //console.log("matched = " + matched);
-        ShowHint("Неверно введена длина ключа");
-
-        return;
-    }
-    
-  
-  MakeRSA('key', 'open_keyN', 'open_keyD' );
-}
-
-</script>
-
 </head>
 
 
 <body>
 
 <div class="container upper">
+  
+  <div class="row">
+ <div class="col-sm-5"></div>
+<form  class="col-sm-2" id="ebala">
+  <h4 id="button_click" class="fq" onclick="window.open('RSACryptor.html')">RSA EMOJI💯 CRYPTR
+ 
+  </h4>
+
+  <h4 id="button_click" onclick="window.open('KeySharing.html')">KEY SHARING CRYPTR</h4>   
   <div class="row">
     
-<form  class="col-sm-12" id="ebala">
-  
-  
-   <!-- <button id="button_click" onclick="MakeRSA(512, 'open_keyN', 'open_keyD' );" >Генерировать Ключи"</button> -->
-        
-
-   <!-- <div id="button_click">Генерировать Ключи</div> -->
-
-   <h4 id="button_click" onclick="load_func();">Генерировать ключи</h4>
-
-       
-  <div class="row">
-        <div class="col-sm-1 col-sm-2 "><h5>Длина ключа</h5></div>
-        <div id="helper" style="opacity:0" class="hint">wdwa</div>
 
 
 
 </div>
-        <textarea id="key" class="short_field" id="open_keyD" ></textarea>
-
-        <div id="fade" >
-        <h5>Закрытый ключ</h5>
-        <textarea class="noneditable1 short_field" id="open_keyD" ></textarea>
-        <h5>Открытый ключ</h5>
-        <textarea class="noneditable1 short_field" id="open_keyN" ></textarea>
-        
-        <hr>
-
-    <h5>Сообщение для зашифровки</h5>
-  <textarea  id="input_text" onclick="EncryptHTML('input_text', 'closed_key','open_keyq', 'open_keyN');"
-   oninput="EncryptHTML('input_text', 'closed_key','open_keyq', 'open_keyN');"></textarea>
-  
-  
-
-  <h5>Зашифрованное сообщение</h5>
-  <textarea id="closed_key" onchange="DecryptHTML('closed_key', 'out_text','open_keyq','open_keyD','open_keyN');"></textarea>
-  <hr>
-  <h4 id="button_click" onclick="DecryptHTML('closed_key', 'out_text','open_keyq','open_keyD','open_keyN');">Расшифровать</h3>
-  <textarea class="noneditable1" id="out_text" ></textarea>
-
-
-  <p></p>
   </div>
 
 </form>
@@ -127,5 +43,10 @@ function TryMakeRsa()
 </div>
 
 </body>
+
+<script>
+    
+    </script>
+
 </html> 
 

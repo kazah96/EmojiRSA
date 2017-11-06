@@ -3,7 +3,7 @@ body {
     padding: 0px;
     
   
-    background-color:#4E8585;
+    background-color:rgba(77, 99, 132, 1);
    
    
  
@@ -71,6 +71,7 @@ float: none;
 .short_field
 {
     padding:3px;
+    margin-bottom:4px;
     height: 24px;
     font-size: 12px;
     
@@ -103,6 +104,9 @@ float: none;
     transition-duration: 200ms;
     transition-timing-function: ease-in-out;
 }
+
+
+
 
 .hint
 {
@@ -167,6 +171,16 @@ float: none;
     z-index: 2;
 }
 
+.folder
+{
+    color:black;
+    border: 2px solid gray; 
+    border-width: 1px 1px 1px 1px;
+    border-radius: 5px;
+    position: absolute;
+    padding-bottom: 3px;
+}
+
 form{
    
     /* text-align: center; */
@@ -199,6 +213,7 @@ form{
     animation-timing-function: ease-in;
 
 
+
 }
 
 .helper
@@ -216,9 +231,6 @@ form{
     }
 }
 
-
-
-
 textarea{
     border-radius: 5px;
     padding: 5px;
@@ -235,6 +247,8 @@ textarea{
     transition-duration: 300ms;
     transition-timing-function: ease-out;
     box-shadow: -50x -50x firebrick;
+    overflow:visible
+    
 }
 textarea:hover
 {

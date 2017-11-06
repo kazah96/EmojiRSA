@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8"/>
+<script type="text/javascript" src="BigInt/BigInteger.js"></script>
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript" src="secrets/secrets.min.js"></script>
+
+
+<title>Key Sharing Shamir</title>
+
+
+<link href="style.css" type="text/css" rel="stylesheet"/>
+<link href="bootstrap-grid.min.css" type="text/css" rel="stylesheet"/>
+
+</head>
+
+
+<body>
+
+<div class="container upper">
+  <div class="row">
+    
+<form  class="col-sm-12" id="ebala">
+
+    <h5>Секретное сообщение</h5> <textarea  id="input_text"></textarea>
+
+     <h5>Количество частей</h5>
+
+    <textarea id="number" class="short_field"></textarea>
+    <h5>Порог</h5>
+    <textarea id="threshold" class="short_field" ></textarea>
+
+    <hr>
+   <h4 id="button_click" onclick="load_func();">Разделить секрет</h4>
+    <div id="lines"><textarea id="line1" oninput="addLine('line1');" ></textarea>
+    </div>
+   
+  <hr>
+  <h4 id="button_click" onclick="DecryptHTML('closed_key', 'out_text','open_keyq','open_keyD','open_keyN');">Расшифровать</h4>
+  <textarea class="noneditable1" id="out_text" ></textarea>
+
+
+  <p></p>
+  </div>
+
+</form>
+
+</div>
+</div>
+
+</body>
+
+<script>
+
+
+var lines = 1;
+
+
+function load_func()
+{
+    var input = document.getElementById('input_text').value;
+    if(input == '');
+
+    var threshold = document.getElementById('threshold').value;
+    console.log("threshold" + threshold);
+    
+    var number = document.getElementById('number').value;
+    console.log("number" + number);
+
+    var shared = Share(input,  parseInt(number,10), parseInt(threshold,10)); 
+
+    document.getElementById('line1').value = shared;
+
+
+}
+
+function addLine(elemId)
+{
+  var ebala = document.getElementById('lines');
+
+  var elemFromId = document.getElementById(elemId);
+
+  var element = "line" + lines; 
+
+
+
+  console.log(element);
+  if(document.getElementById(element).value != '')
+  { lines++;
+    ebala.innerHTML += "<textarea oninput='addLine();' class='short_field' id='line" + lines + "'>";
+
+  }
+
+}
+
+function DecryptHTML()
+{
+  var input = document.getElementById('line1').value;
+
+  var splited = input.split(',');
+  var nshare = secrets.newShare(10,splited);
+
+
+  var out = secrets.combine(splited);
+  out = secrets.hex2str(out);
+  //console.log(out);
+  document.getElementById('out_text').value = out;
+
+}
+
+function Share(message_element, max_num, num)
+{
+
+  var pwhex = secrets.str2hex(message_element);
+
+  var shares = secrets.share(pwhex, max_num, num);
+  console.log("THIRD SHARE = " + shares[3]);
+  var out = secrets.combine(shares.slice(1,6));
+ out = secrets.hex2str(out);
+  console.log(out);
+  
+
+  return shares;
+
+}
+
+        
+</script>
+
+</html> 
+

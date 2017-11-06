@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8"/>
+<script type="text/javascript" src="BigInt/BigInteger.js"></script>
+<script type="text/javascript" src="RsaScript.js"></script>
+<script type="text/javascript" src="jquery.min.js"></script>
+
+
+<title>RSAEncryptor</title>
+<link href="style.css" type="text/css" rel="stylesheet"/>
+<link href="bootstrap-grid.min.css" type="text/css" rel="stylesheet"/>
+
+
+<!-- <meta http-equiv="refresh" content="1" > -->
+
+</head>
+
+
+<body onload="load_func()">
+
+<div class="container upper">
+  <div class="row">
+    
+<form  class="col-sm-12" id="ebala">
+
+    <h5>Длина ключа</h5>
+    <textarea id="key" class="short_field" id="open_keyD" ></textarea>
+   <h4 id="button_click" onclick="load_func();">Генерировать ключи</h4>
+
+       
+  <div class="row">
+        
+
+
+
+
+</div>
+      
+        
+
+        <div id="fade" >
+        <h5>Закрытый ключ</h5>
+        <textarea class="noneditable1 short_field" id="open_keyD" ></textarea>
+        <h5>Открытый ключ</h5>
+        <textarea class="noneditable1 short_field" id="open_keyN" ></textarea>
+        <div id="added-fields">
+
+          
+        </div>
+        <hr>
+      
+    <h5>Сообщение для зашифровки</h5>
+  <textarea  id="input_text" onclick="EncryptHTML('input_text', 'closed_key','open_keyq', 'open_keyN');"
+   oninput="EncryptHTML('input_text', 'closed_key','open_keyq', 'open_keyN');"></textarea>
+  
+  
+
+  <h5>Зашифрованное сообщение</h5>
+  <textarea id="closed_key" onchange="DecryptHTML('closed_key', 'out_text','open_keyq','open_keyD','open_keyN');"></textarea>
+  <hr>
+  <h4 id="button_click" onclick="DecryptHTML('closed_key', 'out_text','open_keyq','open_keyD','open_keyN');">Расшифровать</h4>
+  <textarea class="noneditable1" id="out_text" ></textarea>
+
+
+  <p></p>
+  </div>
+
+</form>
+
+</div>
+</div>
+
+</body>
+
+<script>
+    
+
+    var time_key=10;
+    
+    $("#helper").toggle(0);
+    
+    function ShowHint(Message)
+    {
+      var helper = document.getElementById("helper");
+      helper.textContent = Message;
+      console.log(helper);
+    
+      $("#helper").animate({opacity:1}, 600, function(){});
+    
+    }
+    
+    function load_func()
+    {
+      TryMakeRsa();
+
+      document.getElementById('key').addEventListener("overflow", function(){console.log("Sfdsfds")});
+          }
+    
+    function TryMakeRsa()
+    {
+         var regex = new RegExp("[^0-9]");
+        rsaBit =   document.getElementById('key').value;
+        var matched =  String(rsaBit).match(regex);
+        if(rsaBit== '' || matched != null)
+        {
+            //console.log("matched = " + matched);
+            ShowHint("Неверно введена длина ключа");
+    
+            return;
+        }
+        
+      
+      MakeRSA('key', 'open_keyN', 'open_keyD' );
+    }
+    
+    
+    </script>
+
+</html> 
+
