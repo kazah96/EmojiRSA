@@ -85,7 +85,7 @@ float: none;
     font-size: 12px;
 }
 
-#button_click
+.button_click
 {
     font-family: sans-serif;
     font-weight: 200;
@@ -121,7 +121,7 @@ float: none;
 }
 
 
-#button_click:hover
+.button_click:hover
 {
     background-color: #FFD399;
 
@@ -131,7 +131,7 @@ float: none;
     border-style:dashed;
 }
 
-#button_click:active
+.button_click:active
 {
     font-weight: 500;
     color: rgb(139, 61, 109);

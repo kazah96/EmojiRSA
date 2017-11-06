@@ -7,7 +7,7 @@
 <script type="text/javascript" src="jquery.min.js"></script>
 
 
-<title>RSAEncryptor</title>
+<title>RSA 💯</title>
 <link href="style.css" type="text/css" rel="stylesheet"/>
 <link href="bootstrap-grid.min.css" type="text/css" rel="stylesheet"/>
 
@@ -25,8 +25,8 @@
 <form  class="col-sm-12" id="ebala">
 
     <h5>Длина ключа</h5>
-    <textarea id="key" class="short_field" id="open_keyD" ></textarea>
-   <h4 id="button_click" onclick="load_func();">Генерировать ключи</h4>
+    <textarea title="Введите число от 16 до 512" id="key" class="short_field" id="open_keyD" ></textarea>
+   <h4 class="button_click" onclick="load_func();">Генерировать ключи</h4>
 
        
   <div class="row">
@@ -41,7 +41,7 @@
 
         <div id="fade" >
         <h5>Закрытый ключ</h5>
-        <textarea class="noneditable1 short_field" id="open_keyD" ></textarea>
+        <textarea title="Ключ для расшифровки" class="noneditable1 short_field" id="open_keyD" ></textarea>
         <h5>Открытый ключ</h5>
         <textarea class="noneditable1 short_field" id="open_keyN" ></textarea>
         <div id="added-fields">
@@ -59,7 +59,7 @@
   <h5>Зашифрованное сообщение</h5>
   <textarea id="closed_key" onchange="DecryptHTML('closed_key', 'out_text','open_keyq','open_keyD','open_keyN');"></textarea>
   <hr>
-  <h4 id="button_click" onclick="DecryptHTML('closed_key', 'out_text','open_keyq','open_keyD','open_keyN');">Расшифровать</h4>
+  <h4 class="button_click" onclick="DecryptHTML('closed_key', 'out_text','open_keyq','open_keyD','open_keyN');">Расшифровать</h4>
   <textarea class="noneditable1" id="out_text" ></textarea>
 
 
@@ -75,6 +75,22 @@
 
 <script>
     
+
+    var q = setInterval(changeName, 200);
+      
+        function changeName()
+        {
+    
+          var rand = Math.floor(Math.random()*128);
+      
+    
+          var rand1 = Math.floor(Math.random()*128);
+          var rand2 = Math.floor(Math.random()*128);
+          document.title ="RSA" + b64chars[rand*2] + b64chars[rand*2+1] 
+          +  b64chars[rand1*2] + b64chars[rand1*2+1]
+          +b64chars[rand2*2] + b64chars[rand2*2+1];
+
+        }
 
     var time_key=10;
     

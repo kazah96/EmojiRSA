@@ -5,7 +5,7 @@
 <script type="text/javascript" src="BigInt/BigInteger.js"></script>
 <script type="text/javascript" src="jquery.min.js"></script>
 <script type="text/javascript" src="secrets/secrets.min.js"></script>
-
+<script type="text/javascript" src="RsaScript.js"></script>
 
 <title>Key Sharing Shamir</title>
 
@@ -32,12 +32,12 @@
     <textarea id="threshold" class="short_field" ></textarea>
 
     <hr>
-   <h4 id="button_click" onclick="load_func();">Разделить секрет</h4>
+   <h4 class="button_click" onclick="load_func();">Разделить секрет</h4>
     <div id="lines"><textarea id="line1" oninput="addLine('line1');" ></textarea>
     </div>
    
   <hr>
-  <h4 id="button_click" onclick="DecryptHTML('closed_key', 'out_text','open_keyq','open_keyD','open_keyN');">Расшифровать</h4>
+  <h4 class="button_click" onclick="DecryptHTML('closed_key', 'out_text','open_keyq','open_keyD','open_keyN');">Расшифровать</h4>
   <textarea class="noneditable1" id="out_text" ></textarea>
 
 
@@ -113,14 +113,7 @@ function Share(message_element, max_num, num)
 {
 
   var pwhex = secrets.str2hex(message_element);
-
   var shares = secrets.share(pwhex, max_num, num);
-  console.log("THIRD SHARE = " + shares[3]);
-  var out = secrets.combine(shares.slice(1,6));
- out = secrets.hex2str(out);
-  console.log(out);
-  
-
   return shares;
 
 }
