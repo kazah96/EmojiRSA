@@ -77,6 +77,46 @@ float: none;
     
 }
 
+.tbl
+{
+    border-radius: 5px;
+    resize: none;
+    background: rgba(224, 240, 255, 0.4);
+    font-weight: 100;
+    font-size: 12px;
+    font-family: sans-serif;
+    height: 70px;
+    width:100%;
+    color:black;
+    border: 2px solid gray; 
+    border-width: 1px 1px 1px 1px;
+    transition-property: background-color;
+    transition-duration: 300ms;
+    transition-timing-function: ease-out;
+    box-shadow: -50x -50x firebrick;
+  
+
+}
+th{
+    background: rgb(121, 170, 207);
+
+}
+tr{
+    background: rgb(170, 190, 199);
+
+}
+
+td{
+  
+    transition-property: background;
+    transition-duration: 500ms;
+    transition-timing-function: ease-out;
+}
+
+td:hover{
+    background: rgb(121, 170, 207);
+   
+}
 
 
 .noneditable1 textarea{

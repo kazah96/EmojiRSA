@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+
+	<link href="style.css" type="text/css" rel="stylesheet"/>
+	<link href="bootstrap-grid.min.css" type="text/css" rel="stylesheet"/>
+	<script type="text/javascript" src="access.js"></script>
+
+</head>
+<body>
+	<div class="container upper">
+		<div class="row">
+		  
+	  <form  class="col-sm-12" id="ebala">
+
+			<h5>Логины через запятую</h5>
+			<textarea title="Введите число от 16 до 512" class="short_field" id="logins" ></textarea>
+			<h5>Файлы через запятую</h5>
+			<textarea title="Введите число от 16 до 512" class="short_field" id="files" ></textarea>
+
+		   <h4 class="button_click" onclick="fill_table('logins', 'files', 'table1')">Генерировать таблицу доступа</h4>
+			<hr>
+			<table class="tbl" >
+					<tbody id="table1">
+					</tbody>
+				</table>
+				<br>
+	</form>
+	</div>
+	</div>
+
+
+
+</body>
+</html>
