@@ -41,6 +41,15 @@ h5 {
   
 }
 
+.access_field {
+    
+    font-size: 14px;
+    font-family: sans-serif;
+    
+    margin: 4px;
+  
+}
+
 
 li{
     display: inline;
@@ -144,6 +153,9 @@ td:hover{
     transition-duration: 200ms;
     transition-timing-function: ease-in-out;
 }
+
+
+    
 
 
 

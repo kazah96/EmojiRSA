@@ -1,5 +1,7 @@
 var proc = ["read", "write", "pd", "pp"];
 var mas = [];
+var user_arr=[];
+var file_arr=[];
 
 
 
@@ -11,10 +13,12 @@ function fill_table(logins, files, table)
 
 	var loginStr = document.getElementById(logins).value;
 	var logins = loginStr.split(",");
+	user_arr = logins;
 
 	var fileStr = document.getElementById(files).value;
 	console.log("fsd" + fileStr);
 	var files = fileStr.split(",");
+	file_arr=files;
 
 	
 	generate_matrix(logins, files);
@@ -41,7 +45,40 @@ function randomInteger(min, max) {
 
 
  
+function get_access(loginElem, fileElem, outElem)
+{
+	var login = document.getElementById(loginElem).value;
+	
+	var file = document.getElementById(fileElem).value;
+	
+	var out = document.getElementById(outElem);
+	
+	for(var q=0; q<user_arr.length;q++)
+	{
+		
+				
+		if(login == user_arr[q])
+		{
+			
+			for(var w=0; w<file_arr.length;w++)
+			{
+				if(file == file_arr[w])
+				{
+				
+					out.innerHTML = "<b>" + login + "</b> Has <b> "   
+					+ proc[mas[q][w]] + "</b> to file <b>" + file +"</b>";
+					return;
+				}
+				
+			}
+			out.innerHTML = ("file: " + file  + " is not exist");	
+			return;
+		}
 
+	}
+	out.innerHTML = ("login: " + login  + " is not exist");	
+	
+}
 
 function TableOutput(user, object)
 {
