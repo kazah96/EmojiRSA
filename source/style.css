@@ -308,7 +308,6 @@ textarea:hover
     background-color: rgba(151, 206, 255, 0.4);
     box-shadow: inset 0px 1px 1px rgba(0,0,0,0.075), 0px 0px 8px rgba(44,62,80,0.6);
    
-
 }
 
 textarea:focus
@@ -322,4 +321,12 @@ textarea:focus
 #fading
 {
     filter: contrast(0);
+}
+
+.wrongText {
+	background: #ec6464;
+}
+
+.rightText {
+	background: #87df87;
 }

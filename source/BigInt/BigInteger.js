@@ -811,7 +811,7 @@ var bigInt = (function (undefined) {
 
     BigInteger.prototype.isProbablePrime = function (iterations) {
         var isPrime = isBasicPrime(this);
-        if (isPrime !== undefined) return isPrime;
+        if (isPrime !== undefined) return isPrime; 
         var n = this.abs();
         var t = iterations === undefined ? 5 : iterations;
         // use the Fermat primality test

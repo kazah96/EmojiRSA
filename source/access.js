@@ -16,24 +16,22 @@ function fill_table(logins, files, table)
 	user_arr = logins;
 
 	var fileStr = document.getElementById(files).value;
-	console.log("fsd" + fileStr);
 	var files = fileStr.split(",");
 	file_arr=files;
 
 	
 	generate_matrix(logins, files);
-	console.log(TableOutput(logins, files));
 	tble.innerHTML += TableOutput(logins, files);
 
 }
 
-function generate_matrix(user, object)
+function generate_matrix(userArray, filesArray)
 {
 
-  for (var i = 0; i < object.length; i++){
+  for (var i = 0; i < filesArray.length; i++){
     mas[i] = [];
-    for (var j = 0; j < user.length; j++){
-        mas[i][j] = randomInteger(0, 3);
+    for (var j = 0; j < userArray.length; j++){
+        mas[i][j] = randomInteger(0, proc.length);
  }}
 }
 
@@ -54,9 +52,7 @@ function get_access(loginElem, fileElem, outElem)
 	var out = document.getElementById(outElem);
 	
 	for(var q=0; q<user_arr.length;q++)
-	{
-		
-				
+	{		
 		if(login == user_arr[q])
 		{
 			
@@ -88,7 +84,6 @@ function TableOutput(user, object)
 		if(i==0) {
 				var s = "<tr><th>Login</th>";
 
-					console.log("fsdfdsf");
 					for(var j=0;j<user.length;j++)
 					{
 						s+= "<th>" + user[j] + "</th>";
